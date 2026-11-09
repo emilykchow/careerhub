@@ -1,3 +1,8 @@
+###################### Environment Variables ######################
+frontend/.env
+backend/.env
+
+###################### Frontend ######################
 # Logs
 logs
 *.log
@@ -7,33 +12,38 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-.DS_Store
-dist
-dist-ssr
-coverage
-*.local
+frontend/node_modules
+frontend/.DS_Store
+frontend/dist
+frontend/dist-ssr
+frontend/coverage
+frontend/*.local
 
 # Editor directories and files
-.vscode/*
+frontend/.vscode/*
 !.vscode/extensions.json
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+frontend/.idea
+frontend/*.suo
+frontend/*.ntvs*
+frontend/*.njsproj
+frontend/*.sln
+frontend/*.sw?
 
-*.tsbuildinfo
+frontend/*.tsbuildinfo
 
-.eslintcache
+frontend/.eslintcache
 
 # Cypress
-/cypress/videos/
-/cypress/screenshots/
+frontend/cypress/videos/
+frontend/cypress/screenshots/
 
 # Vitest
-__screenshots__/
+frontend/__screenshots__/
 
 # Vite
-*.timestamp-*-*.mjs
+frontend/*.timestamp-*-*.mjs
+
+###################### Backend ######################
+backend/.venv
+backend/__pycache__
+*.cpython-*.pyc
