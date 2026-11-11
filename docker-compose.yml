@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: careerhub-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: careerhub-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  database:
+    image: postgres:15.4-alpine
+    container_name: careerhub-database
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5432:5432"
+    # volumes:
+    #   - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

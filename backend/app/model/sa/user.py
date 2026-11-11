@@ -1,8 +1,14 @@
-class Users(Base):
-    """Example database model mapping to a real PostgreSQL table."""
+from app.models.sa.base import Base
+from sqlalchemy import Boolean, Column, Integer, String
 
+
+class Users(Base):
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(primary_key=True, index=True)
-    email: Mapped[str] = mapped_column(unique=True, index=True, nullable=False)
-    full_name: Mapped[str | None] = mapped_column(nullable=True)
+    id = Column(Integer, primary_key=True, index=True)
+    auth0_id = Column(String, unique=True, nullable=False, index=True)
+    name = Column(String, nullable=False)
+    nick_name = Column(String, nullable=True)
+    picture = Column(String, nullable=True)
+    email = Column(String, unique=True, index=True, nullable=False)
+    email_verified = Column(Boolean, nullable=False)
