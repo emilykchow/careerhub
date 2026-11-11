@@ -1,1 +1,69 @@
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* border */
+@utility rounded-border {
+  @apply rounded-full border border-gray-300;
+}
+
+@utility large-rounded-border {
+  @apply rounded-border px-4 py-2;
+}
+
+@utility small-rounded-border {
+  @apply rounded-border px-4 py-1;
+}
+
+/* spacing */
+@utility page-spacing {
+  @apply px-20 py-10;
+}
+
+/* text */
+@utility heading {
+  @apply text-content font-bold text-4xl mb-2;
+}
+
+@utility subheading {
+  @apply text-muted font-bold text-2xl mb-2;
+}
+
+@utility default-text {
+  @apply text-content text-sm;
+}
+
+@utility muted-text {
+  @apply text-muted text-sm;
+}
+
+/* responsive flex */
+@utility responsive-flex {
+  @apply flex flex-col md:flex-row;
+}
+
+/* hover */
+@utility hover-button {
+  @apply hover:bg-accent-color  dark:hover:bg-accent-color cursor-pointer duration-300;
+}
+
+@utility hover-text {
+  @apply hover:text-muted  dark:hover:text-muted cursor-pointer duration-300;
+}
+
+/* light/dark theme */
+@theme {
+  --color-banner: #eff4fb;
+  --color-content: #111827;
+  --color-muted: #6b7280;
+  --color-background: #ffffff;
+  --color-accent-color: #85a7dc;
+}
+
+.dark {
+  --color-banner: #1e293b;
+  --color-content: #ffffff;
+  --color-muted: #6b7280;
+  --color-background: #0f172a;
+  --color-accent-color: #6295e6;
+}

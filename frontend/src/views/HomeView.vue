@@ -1,13 +1,20 @@
 <template>
-  <div class="min-h-screen bg-gray-100 p-8">
-    <div class="custom-card shadow-lg">
-      <h2 class="text-2xl font-bold">Welcome to CareerHub</h2>
+  <main class="min-h-screen">
+    <Hero />
 
-      <p class="text-gray-600">Find your dream career.</p>
+    <div v-if="isLoading" class="text-center py-12">
+      <p class="text-gray-400 animate-pulse">Checking authentication...</p>
     </div>
-  </div>
+
+    <HighlightedJobs v-else-if="isAuthenticated" />
+  </main>
 </template>
 
-<style scoped></style>
+<script setup lang="ts">
+import { useAuth0 } from '@auth0/auth0-vue'
 
-<script setup lang="ts"></script>
+import Hero from '@/components/Hero.vue'
+import HighlightedJobs from '@/components/HighlightedJobs.vue'
+
+const { isLoading, isAuthenticated } = useAuth0()
+</script>
