@@ -3,10 +3,14 @@ FROM python:3.11
 # set the working directory inside the container
 WORKDIR /app
 
+RUN python -m venv .venv
+
+ENV PATH="/app/.venv/bin:$PATH"
+
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src ./src
+COPY ./app/ /app/app/
 
 EXPOSE 8080
 
